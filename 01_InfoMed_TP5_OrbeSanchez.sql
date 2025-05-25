@@ -4,3 +4,4 @@ COUNT(id_paciente),
 FROM
 Pacientes
 group by
+CUIDAD;
