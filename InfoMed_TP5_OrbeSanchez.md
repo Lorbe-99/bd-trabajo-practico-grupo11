@@ -1,4 +1,4 @@
-# Trabajo Práctico 5 – InfoMed  
+![image](https://github.com/user-attachments/assets/d1111c68-7862-460a-8ce7-4fef751c8c8f)# Trabajo Práctico 5 – InfoMed  
 **Materia:** Bases de Datos  
 **Institución:** ITBA  
 **Profesores:** Eugenia Berrino, Melina Piacentino, Carlos Lazzarino, Ingrid Celia Spessotti 
@@ -449,5 +449,9 @@ Output:
 <p align="center">
   <img src="Imágenes/Query18.png"/>
 </p>
+
 ---
+
+Notas: Utilizamos el nombre TP5 en lugar de TP4 porque, al recibir el ejemplo, estaba rotulado como TP5 y cometimos un error. Cuando nos dimos cuenta, ya habíamos prácticamente finalizado el trabajo práctico. Pedimos disculpas por la confusión.
+
 
