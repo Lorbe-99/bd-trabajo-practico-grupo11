@@ -41,10 +41,14 @@ El sistema busca reemplazar los registros en papel por una solución digital que
 ### Resoluciones Parte 1:
 
 1. Es una base de datos relacional, ya que la información se organiza en tablas relacionadas entre sí mediante claves primarias y foráneas. Según su función es una base de datos transaccional, utilizada para el almacenamiento, consulta y modificación de datos del día a día en el centro médico (pacientes, médicos, medicamentos, tratamiento)
-2. imagen
+2. <p align="center">
+  <img src="Imágenes/Parte1_2.png"/>
+</p>
 3. Se uso la pagina: https://dbdiagram.io/d
 
-imagen
+<p align="center">
+  <img src="Imágenes/Parte1_3.png"/>
+</p>
 
 4. Está normalizada porque están bien separados los atributos, por ejemplo el de dirección está separado por calle, número y ciudad. Esto capaz se puede mejorar 
 ---
@@ -82,6 +86,11 @@ imagen
     group by
     CIUDAD;
 
+Output:
+<p align="center">
+  <img src="Imágenes/Query01.png"/>
+</p>
+
 2.
     CREATE VIEW EdadesPacientes AS
     SELECT
@@ -92,7 +101,11 @@ imagen
     FROM 
     Pacientes;
     SELECT * FROM EdadesPacientes
-
+    
+Output:
+<p align="center">
+  <img src="Imágenes/Query02.png"/>
+</p>
 3.
     UPDATE Pacientes p
     JOIN (
@@ -111,6 +124,10 @@ imagen
         p.numero = '500';
     SELECT * FROM Pacientes;
 
+Output:
+<p align="center">
+  <img src="Imágenes/Query03.png"/>
+</p>
 4.
     SELECT
     nombre,
@@ -118,6 +135,11 @@ imagen
     FROM
     Medicos
     WHERE especialidad_id = 4;
+
+Output:
+<p align="center">
+  <img src="Imágenes/Query04.png"/>
+</p>
     
 5.
     SET SQL_SAFE_UPDATES = 0;
@@ -190,6 +212,11 @@ imagen
     Pacientes p
     LEFT JOIN Ciudades c on p.id_ciudad = c.id_ciudad;
 
+Output:
+<p align="center">
+  <img src="Imágenes/Query05.png"/>
+</p>
+
 6.
     SELECT
     p.nombre,
@@ -200,7 +227,10 @@ imagen
     Pacientes p
         LEFT JOIN Ciudades c ON p.id_ciudad = c.id_ciudad
     WHERE p.id_ciudad = 1;
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query06.png"/>
+</p>
 7.
     SELECT
     count(r.id_receta) AS Cant_recetas,
@@ -211,7 +241,10 @@ imagen
     LEFT JOIN Medicos m ON r.id_medico = m.id_medico
     WHERE r.id_medico = 3 AND YEAR(r.fecha) = 2024 AND MONTH(r.fecha) = 08
     GROUP BY MONTH(r.fecha);
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query07.png"/>
+</p>
 8.
     SELECT
         SUM(case when p.id_sexo = 1 THEN 1 ELSE 0 END) AS Hombres,
@@ -222,7 +255,10 @@ imagen
         LEFT JOIN Cuidades c ON p.id_cuidad = c.id_cuidad
         LEFT JOIN SexoBiologico s ON p.id_sexo = c.id_sexo
     GROUP BY c.nombre_cuidad
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query08.png"/>
+</p>
 9.
     SELECT 
     COUNT(r.id_receta) AS Cant_Recetas,
@@ -231,7 +267,10 @@ imagen
     Medicos m
         LEFT JOIN Recetas r ON r.id_medico = m.id_medico
     GROUP BY m.nombre;
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query09.png"/>
+</p>
 10.
     SELECT
     count(r.id_receta) AS Cant_recetas,
@@ -242,7 +281,10 @@ imagen
     LEFT JOIN Medicos m ON r.id_medico = m.id_medico
     WHERE r.id_medico = 3 AND YEAR(r.fecha) = 2024 AND MONTH(r.fecha) = 08
     GROUP BY MONTH(r.fecha);
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query10.png"/>
+</p>
 11.
     SELECT
     	p.nombre,
@@ -252,7 +294,10 @@ imagen
     	Consultas c
         LEFT JOIN Pacientes p ON c.id_paciente = p.id_paciente
     WHERE MONTH(c.fecha) = 08
-        
+ Output:
+<p align="center">
+  <img src="Imágenes/Query11.png"/>
+</p>       
   
     
 12.
@@ -265,7 +310,10 @@ imagen
     WHERE r.id_medico = 2 
     GROUP BY mt.id_medicamento
     HAVING COUNT(r.id_medicamento) > 1;
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query12.png"/>
+</p>
 13.
     SELECT
     	p.nombre AS Nombre,
@@ -273,7 +321,10 @@ imagen
     FROM
     	Pacientes p
         LEFT JOIN Recetas r ON r.id_paciente = p.id_paciente
-    GROUP BY p.id_paciente;
+Output:
+<p align="center">
+  <img src="Imágenes/Query13.png"/>
+</p>    GROUP BY p.id_paciente;
 
 14.
     SELECT
@@ -287,7 +338,10 @@ imagen
     ORDER BY
         VecesRecetada DESC
     LIMIT 1;
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query14.png"/>
+</p>
 15.
     SELECT
     	p.nombre,
@@ -302,7 +356,10 @@ imagen
             FROM Consultas c2
             WHERE c2.id_paciente = c.id_paciente
         )
-   
+ Output:
+<p align="center">
+  <img src="Imágenes/Query15.png"/>
+</p>  
 16.
     SELECT
     m.nombre AS Medico,
@@ -314,7 +371,10 @@ imagen
         LEFT JOIN Pacientes p ON c.id_paciente = p.id_paciente
     GROUP BY
     m.id_medico, p.id_paciente;
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query16.png"/>
+</p>
 
 17.
     WITH Totales AS (
@@ -342,7 +402,10 @@ imagen
     t.id_medicamento, md.nombre, p.nombre
     ORDER BY
         t.TotalRecetas DESC;
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query17.png"/>
+</p>
 18.
     SELECT
     md.nombre,
@@ -353,6 +416,9 @@ imagen
         LEFT JOIN Pacientes p ON c.id_paciente = p.id_paciente
     GROUP BY 
     c.id_medico
-
+Output:
+<p align="center">
+  <img src="Imágenes/Query18.png"/>
+</p>
 ---
 
