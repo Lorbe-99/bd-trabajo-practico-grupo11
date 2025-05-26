@@ -338,10 +338,12 @@ Output:
     ORDER BY
         VecesRecetada DESC
     LIMIT 1;
+   
 Output:
 <p align="center">
   <img src="Imágenes/Query14.png"/>
 </p>
+
 15.
     SELECT
     	p.nombre,
@@ -356,10 +358,12 @@ Output:
             FROM Consultas c2
             WHERE c2.id_paciente = c.id_paciente
         )
- Output:
+        
+Output:
 <p align="center">
   <img src="Imágenes/Query15.png"/>
 </p>  
+
 16.
     SELECT
     m.nombre AS Medico,
@@ -371,10 +375,15 @@ Output:
         LEFT JOIN Pacientes p ON c.id_paciente = p.id_paciente
     GROUP BY
     m.id_medico, p.id_paciente;
+    
 Output:
 <p align="center">
-  <img src="Imágenes/Query16.png"/>
+  <img src="Imágenes/Query16_1.png"/>
 </p>
+<p align="center">
+  <img src="Imágenes/Query16_2.png"/>
+</p>
+
 
 17.
     WITH Totales AS (
