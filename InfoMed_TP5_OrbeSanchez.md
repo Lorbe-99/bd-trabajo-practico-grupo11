@@ -1,4 +1,4 @@
-# Trabajo Práctico 4 – InfoMed  
+# Trabajo Práctico 4 – Informática Médica 
 **Materia:** Bases de Datos  
 **Institución:** ITBA  
 **Profesores:** Eugenia Berrino, Melina Piacentino, Carlos Lazzarino, Ingrid Celia Spessotti 
