@@ -50,7 +50,14 @@ El sistema busca reemplazar los registros en papel por una solución digital que
   <img src="Imágenes/Parte1_3.png"/>
 </p>
 
-4. Está normalizada porque están bien separados los atributos, por ejemplo el de dirección está separado por calle, número y ciudad. Esto capaz se puede mejorar 
+4. La base de datos está normalizada porque cumple con las tres primeras formas normales:
+- Cumple Primera Forma Normal (1FN) porque todos los atributos contienen valores atómicos y no hay grupos repetitivos; por ejemplo, la dirección está correctamente separada en calle, número y ciudad.
+- Cumple la Segunda Forma Normal (2FN) porque todas las tablas con clave primaria tienen atributos no clave que dependen completamente de la clave, sin dependencias parciales. 
+- Cumple la Tercera Forma Normal (3FN) porque no hay dependencias transitivas entre los atributos no clave: cada atributo depende directamente de la clave primaria de su tabla y no de otros campos. Por ejemplo, la información sobre especialidades médicas se guarda en una tabla aparte y no como texto repetido en la tabla de médicos.
+
+  
+Esto garantiza que los datos estén organizados de forma eficiente, se minimicen las redundancias y se facilite el mantenimiento de la base.
+
 ---
 
 ## Parte 2: SQL
@@ -233,8 +240,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query06.png"/>
 </p>
-7.  ```sql
 
+7.  ```sql
     SELECT
     count(r.id_receta) AS Cant_recetas,
         MONTH(r.fecha) AS MES,
@@ -248,8 +255,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query07.png"/>
 </p>
-8. ```sql 
 
+8. ```sql 
     SELECT
         SUM(case when p.id_sexo = 1 THEN 1 ELSE 0 END) AS Hombres,
         SUM(case when p.id_sexo = 2 THEN 1 ELSE 0 END) AS Mujeres,
@@ -263,7 +270,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query08.png"/>
 </p>
-9.```sql
+
+9. ```sql  
 
     SELECT 
     COUNT(r.id_receta) AS Cant_Recetas,
@@ -272,11 +280,13 @@ Output:
     Medicos m
         LEFT JOIN Recetas r ON r.id_medico = m.id_medico
     GROUP BY m.nombre;
+    
 Output:
 <p align="center">
   <img src="Imágenes/Query09.png"/>
 </p>
-10.
+
+10. ```sql
     SELECT
     count(r.id_receta) AS Cant_recetas,
         MONTH(r.fecha) AS MES,
@@ -290,8 +300,9 @@ Output:
 <p align="center">
   <img src="Imágenes/Query10.png"/>
 </p>
-11.```sql
 
+
+11. ```sql 
     SELECT
     	p.nombre,
         c.fecha,
@@ -306,8 +317,7 @@ Output:
 </p>       
   
     
-12.```sql
-
+12. ```sql 
     SELECT
     	mt.nombre AS Medicamento,
         COUNT(r.id_medicamento) AS CantVeces
@@ -321,8 +331,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query12.png"/>
 </p>
-13.```sql 
 
+13. ```sql 
     SELECT
     	p.nombre AS Nombre,
         COUNT(r.id_receta) AS CantRecetas
@@ -335,8 +345,7 @@ Output:
   <img src="Imágenes/Query13.png"/>
 </p>    
 
-14.```sql  
-
+14. ```sql
     SELECT
     	mt.nombre AS Medicamento,
         COUNT(r.id_medicamento) AS VecesRecetada
@@ -354,8 +363,7 @@ Output:
   <img src="Imágenes/Query14.png"/>
 </p>
 
-15.```sql 
-
+15. ```sql 
     SELECT
     	p.nombre,
         c.fecha,
@@ -375,8 +383,7 @@ Output:
   <img src="Imágenes/Query15.png"/>
 </p>  
 
-16.```sql 
-
+16. ```sql 
     SELECT
     m.nombre AS Medico,
         p.nombre AS Paciente,
@@ -397,8 +404,7 @@ Output:
 </p>
 
 
-17.```sql 
-
+17. ```sql 
     WITH Totales AS (
         SELECT
             id_medicamento,
@@ -428,8 +434,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query17.png"/>
 </p>
-18.```sql 
 
+18. ```sql 
     SELECT
     md.nombre,
         COUNT(DISTINCT c.id_paciente) AS TotalPacientes
