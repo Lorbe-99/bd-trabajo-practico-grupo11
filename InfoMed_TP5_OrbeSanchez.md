@@ -233,7 +233,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query06.png"/>
 </p>
-7.
+7.  ```sql
+
     SELECT
     count(r.id_receta) AS Cant_recetas,
         MONTH(r.fecha) AS MES,
@@ -247,7 +248,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query07.png"/>
 </p>
-8.
+8. ```sql 
+
     SELECT
         SUM(case when p.id_sexo = 1 THEN 1 ELSE 0 END) AS Hombres,
         SUM(case when p.id_sexo = 2 THEN 1 ELSE 0 END) AS Mujeres,
@@ -261,7 +263,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query08.png"/>
 </p>
-9.
+9.```sql
+
     SELECT 
     COUNT(r.id_receta) AS Cant_Recetas,
         m.nombre AS Médico
@@ -287,7 +290,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query10.png"/>
 </p>
-11.
+11.```sql
+
     SELECT
     	p.nombre,
         c.fecha,
@@ -302,7 +306,8 @@ Output:
 </p>       
   
     
-12.
+12.```sql
+
     SELECT
     	mt.nombre AS Medicamento,
         COUNT(r.id_medicamento) AS CantVeces
@@ -316,19 +321,22 @@ Output:
 <p align="center">
   <img src="Imágenes/Query12.png"/>
 </p>
-13.
+13.```sql 
+
     SELECT
     	p.nombre AS Nombre,
         COUNT(r.id_receta) AS CantRecetas
     FROM
     	Pacientes p
         LEFT JOIN Recetas r ON r.id_paciente = p.id_paciente
+        GROUP BY p.id_paciente;
 Output:
 <p align="center">
   <img src="Imágenes/Query13.png"/>
-</p>    GROUP BY p.id_paciente;
+</p>    
 
-14.
+14.```sql  
+
     SELECT
     	mt.nombre AS Medicamento,
         COUNT(r.id_medicamento) AS VecesRecetada
@@ -346,7 +354,8 @@ Output:
   <img src="Imágenes/Query14.png"/>
 </p>
 
-15.
+15.```sql 
+
     SELECT
     	p.nombre,
         c.fecha,
@@ -366,7 +375,8 @@ Output:
   <img src="Imágenes/Query15.png"/>
 </p>  
 
-16.
+16.```sql 
+
     SELECT
     m.nombre AS Medico,
         p.nombre AS Paciente,
@@ -387,7 +397,8 @@ Output:
 </p>
 
 
-17.
+17.```sql 
+
     WITH Totales AS (
         SELECT
             id_medicamento,
@@ -417,7 +428,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query17.png"/>
 </p>
-18.
+18.```sql 
+
     SELECT
     md.nombre,
         COUNT(DISTINCT c.id_paciente) AS TotalPacientes
