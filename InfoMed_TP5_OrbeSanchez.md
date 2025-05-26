@@ -77,7 +77,7 @@ El sistema busca reemplazar los registros en papel por una solución digital que
 18. Obtener el nombre del médico junto con el total de pacientes a los que ha atendido, ordenado por el total de pacientes en orden descendente.  
 
 ### Resoluciones Parte 1:
-1.
+1. ```sql
     SELECT
     COUNT(id_paciente),
         ciudad
@@ -91,7 +91,7 @@ Output:
   <img src="Imágenes/Query01.png"/>
 </p>
 
-2.
+2. ```sql
     CREATE VIEW EdadesPacientes AS
     SELECT
     id_paciente,
@@ -106,7 +106,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query02.png"/>
 </p>
-3.
+
+3. ```sql
     UPDATE Pacientes p
     JOIN (
         SELECT id_paciente
@@ -128,7 +129,8 @@ Output:
 <p align="center">
   <img src="Imágenes/Query03.png"/>
 </p>
-4.
+
+4. ```sql
     SELECT
     nombre,
         matricula
@@ -141,7 +143,7 @@ Output:
   <img src="Imágenes/Query04.png"/>
 </p>
     
-5.
+5. ```sql
     SET SQL_SAFE_UPDATES = 0;
     
     CREATE TABLE Ciudades (
@@ -217,7 +219,7 @@ Output:
   <img src="Imágenes/Query05.png"/>
 </p>
 
-6.
+6. ```sql
     SELECT
     p.nombre,
         p.numero,
