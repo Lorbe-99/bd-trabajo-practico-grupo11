@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d1111c68-7862-460a-8ce7-4fef751c8c8f)# Trabajo Práctico 5 – InfoMed  
+# Trabajo Práctico 4 – InfoMed  
 **Materia:** Bases de Datos  
 **Institución:** ITBA  
 **Profesores:** Eugenia Berrino, Melina Piacentino, Carlos Lazzarino, Ingrid Celia Spessotti 
